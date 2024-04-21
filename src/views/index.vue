@@ -3,11 +3,12 @@
 
   <div class="mb-8">
 
-    <router-link to="/">首页</router-link>
-    <router-link to="/qingjia">请假</router-link>
-    <router-link to="/waiqin">外勤</router-link>
-    <router-link to="/baobei">报备</router-link>
-    <router-link to="/view">查看</router-link>
+    <!-- <router-link to="/">首页</router-link> -->
+    <el-button type="primary"><router-link to="/qingjia"> 请假</router-link></el-button>
+    <el-button type="success"> <router-link to="/waiqin">外勤</router-link></el-button>
+    <el-button type="info"> <router-link to="/baobei">报备</router-link></el-button>
+    <el-button type="warning"><router-link to="/view">查看</router-link></el-button>
+    <el-button type="danger"><router-link to="/buka">补卡</router-link></el-button>
   </div>
 
   <!-- <div class="mb-4">

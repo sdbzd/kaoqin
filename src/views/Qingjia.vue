@@ -1,59 +1,78 @@
 <template>
-  <h4>{{ msg }}<router-link to="/"><<<<返回</router-link></h4>
-
+  <!-- <h4>{{ msg }}</h4> -->
+  <my-title msg="请假"></my-title>
+  <!-- <header>
+    <router-link to="/"><el-button :icon="House" circle />返回主页</router-link></header> -->
   <div class="card">
     <el-form :model="form" label-width="auto" style="max-width: 600px">
-      <el-form-item label="Activity name">
+      <!-- <el-form-item label="Activity name">
         <el-input v-model="form.name" />
-      </el-form-item>
-      <el-form-item label="Activity zone">
+      </el-form-item> -->
+      <!-- <el-form-item label="Activity zone">
         <el-select v-model="form.region" placeholder="please select your zone">
           <el-option label="Zone one" value="shanghai" />
           <el-option label="Zone two" value="beijing" />
         </el-select>
-      </el-form-item>
-      <el-form-item label="Activity time">
+      </el-form-item> -->
+      <el-form-item label="开始时间">
         <el-col :span="11">
           <el-date-picker v-model="form.date1" type="date" placeholder="Pick a date" style="width: 100%" />
         </el-col>
+       
         <el-col :span="2" class="text-center">
           <span class="text-gray-500">-</span>
         </el-col>
         <el-col :span="11">
           <el-time-picker v-model="form.date2" placeholder="Pick a time" style="width: 100%" />
         </el-col>
+         
+       
       </el-form-item>
-      <el-form-item label="Instant delivery">
+      <el-form-item label="结束时间">
+        <el-col :span="11">
+          <el-date-picker v-model="form.date1" type="date" placeholder="Pick a date" style="width: 100%" />
+        </el-col>
+       
+        <el-col :span="2" class="text-center">
+          <span class="text-gray-500">-</span>
+        </el-col>
+        <el-col :span="11">
+          <el-time-picker v-model="form.date2" placeholder="Pick a time" style="width: 100%" />
+        </el-col>
+         
+       
+      </el-form-item>
+      <!-- <el-form-item label="Instant delivery">
         <el-switch v-model="form.delivery" />
-      </el-form-item>
-      <el-form-item label="Activity type">
+      </el-form-item> -->
+      <!-- <el-form-item label="请假原因">
         <el-checkbox-group v-model="form.type">
           <el-checkbox value="Online activities" name="type">
-            Online activities
+            病假
           </el-checkbox>
           <el-checkbox value="Promotion activities" name="type">
-            Promotion activities
+            事假
           </el-checkbox>
           <el-checkbox value="Offline activities" name="type">
-            Offline activities
+            其他
           </el-checkbox>
           <el-checkbox value="Simple brand exposure" name="type">
-            Simple brand exposure
+            Simple
           </el-checkbox>
         </el-checkbox-group>
-      </el-form-item>
-      <el-form-item label="Resources">
+      </el-form-item> -->
+      <el-form-item label="请假原因">
         <el-radio-group v-model="form.resource">
-          <el-radio value="Sponsor">Sponsor</el-radio>
-          <el-radio value="Venue">Venue</el-radio>
+          <el-radio value="Sponsor">病假</el-radio>
+          <el-radio value="Venue">事假</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="Activity form">
+      <el-form-item label="备注">
         <el-input v-model="form.desc" type="textarea" />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">Create</el-button>
-        <el-button>Cancel</el-button>
+        <el-button type="primary" @click="onSubmit">确定</el-button>
+        <el-button>重填</el-button>
       </el-form-item>
     </el-form>
     <!-- <button type="button" @click="count++">count is {{ count }}</button> -->
@@ -78,12 +97,12 @@
       <el-button type="danger" plain>Danger</el-button>
     </div>
 -->
-  <div class="mb-8 card">
+  <!-- <div class="mb-8 card">
     <el-button type="primary" round>请假</el-button>
     <el-button type="success" round>外勤</el-button>
     <el-button type="info" round>报备</el-button>
     <el-button type="warning" round>查看</el-button>
-  </div>
+  </div> -->
   <div class="card">
 
   </div>
@@ -115,11 +134,13 @@
 
 <script setup>
 import { ref ,reactive } from 'vue'
+import MyTitle from '../components/Header.vue'
 
 defineProps({
   msg: String,
 })
 import {
+  House,
   Check,
   Delete,
   Edit,

@@ -1,6 +1,8 @@
 
 <template>
-  <h4>{{ msg }}<router-link to="/">返回</router-link></h4>
+
+<my-title msg="补卡"></my-title>
+  <!-- <h4>{{ msg }}<router-link to="/"><<<<返回</router-link></h4> -->
 
   <div class="card">
     <!-- <button type="button" @click="count++">count is {{ count }}</button> -->
@@ -26,10 +28,10 @@
     </div>
 -->
     <div class="mb-8 card">     
-      <el-button type="primary" round>请假</el-button>
-      <el-button type="success" round>外勤</el-button>
-      <el-button type="info" round>报备</el-button>
-      <el-button type="warning" round>查看</el-button>
+      <!-- <el-button type="primary" round  @click="goQingjia">请假</el-button>
+      <el-button type="success" round  @click="goOut">外勤</el-button>
+      <el-button type="info" round  @click="goEcharts">报备</el-button>
+      <el-button type="warning" round  @click="goEcharts">查看</el-button> -->
     </div> 
     <div class="card">
 
@@ -62,7 +64,7 @@
 
 <script setup>
 import { ref } from 'vue'
-
+import MyTitle from '../components/Header.vue'
 defineProps({
   msg: String,
 })

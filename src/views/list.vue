@@ -1,6 +1,6 @@
 
 <template>
-  <my-title  msg="外勤"></my-title>
+  <my-title  msg="查看"></my-title>
   <h4>{{ msg }} </h4>
 
   <div class="card">

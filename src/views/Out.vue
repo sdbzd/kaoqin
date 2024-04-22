@@ -1,7 +1,7 @@
 
 <template>
   <!-- <h4>{{ msg }}<router-link to="/">返回</router-link></h4> -->
-  <my-title></my-title>
+  <my-title msg="外勤"></my-title>
   <div class="card">
     <!-- <button type="button" @click="count++">count is {{ count }}</button> -->
  
@@ -25,12 +25,12 @@
       <el-button type="danger" plain>Danger</el-button>
     </div>
 -->
-    <div class="mb-8 card">     
+    <!-- <div class="mb-8 card">     
       <el-button type="primary" round>请假</el-button>
       <el-button type="success" round>外勤</el-button>
       <el-button type="info" round>报备</el-button>
       <el-button type="warning" round>查看</el-button>
-    </div> 
+    </div>  -->
     <div class="card">
 
     </div>

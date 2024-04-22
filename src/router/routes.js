@@ -15,19 +15,19 @@ const routes = [
     path: "/waiqin",
     name: "外勤",
     title: "请假",
-    component: () => import("@/views/Out.vue"), //.vue不能省略
+    component: () => import("@/views/Waiqin.vue"), //.vue不能省略
   },
   {
     path: "/baobei",
     name: "baobei",
     title: "请假",
-    component: () => import("@/views/Waiqin.vue"), //.vue不能省略
+    component: () => import("@/views/baobei.vue"), //.vue不能省略
   },
   {
     path: "/view",
     name: "view",
     title: "请假",
-    component: () => import("@/views/Waiqin.vue"), //.vue不能省略
+    component: () => import("@/views/list.vue"), //.vue不能省略
   },
   {
     path: "/buka",

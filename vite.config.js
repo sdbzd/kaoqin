@@ -13,10 +13,20 @@ export default defineConfig({
     vue(),
     //ElementPlus()
     AutoImport({
-      resolvers: [ElementPlusResolver()]
+      // resolvers: [ElementPlusResolver()]
+      //使用Element-plus的自动导入时
+      resolvers: [ElementPlusResolver({
+        exclude: /^ElAmap[A-Z]*/
+      }),VueAmapResolver()],
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      // resolvers: [ElementPlusResolver()],
+      // 
+      // 
+      // 使用Element-plus的自动导入时
+      resolvers: [ElementPlusResolver({
+        exclude: /^ElAmap[A-Z]*/
+      }),VueAmapResolver()],
     }),
     
   

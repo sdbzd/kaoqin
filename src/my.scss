@@ -1,0 +1,23 @@
+// // enabling negative margins
+// $enable-negative-margins: true;
+// // @import "bootstrap/scss/bootstrap";
+// @import "bootstrap/scss/functions";
+// @import "bootstrap/scss/variables";
+// @import "bootstrap/scss/mixins";
+// @import "bootstrap/scss/utilities";
+
+// // remove all utilities and include only what you want
+// $utilities: (
+//   (
+//     // "negative-margin": map-get($utilities, "negative-margin"),
+//     // "negative-margin-x": map-get($utilities, "negative-margin-x"),
+//     // "negative-margin-y": map-get($utilities, "negative-margin-y"),
+//     // "negative-margin-top": map-get($utilities, "negative-margin-top"),
+//     // "negative-margin-end": map-get($utilities, "negative-margin-end"),
+//     // "negative-margin-bottom": map-get($utilities, "negative-margin-bottom"),
+//     // "negative-margin-start": map-get($utilities, "negative-margin-start"),
+//   )
+// );
+
+// // generate utilities
+// @import "bootstrap/scss/utilities/api";

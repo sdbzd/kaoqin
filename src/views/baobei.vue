@@ -1,17 +1,17 @@
 <template>
   <my-title msg="报备"></my-title>
   <h4>{{ msg }} </h4>
-  <div id="container"></div>
-  <div class="card">
+  <div id="container" ></div>
+ <!--  <div class="">
     <div class="flx-align-center mb-10">
       <el-input v-model="address" class="address mr-20" id="address" placeholder="请输入地址"></el-input>
       <el-button type="primary" @click="search">查询</el-button>
       <el-button type="primary" @click="saveAdress">保存</el-button>
-    </div>
-    <div id="container" class="map"></div>
-  </div>
+    </div> 
+    
+  </div>-->
 
-  <div class="card">
+  <div class="">
     <el-form :model="form" label-width="auto" style="max-width: 600px">
       <!-- <el-form-item label="Activity name">
         <el-input v-model="form.name" />
@@ -127,7 +127,7 @@ onMounted(() => {
   AMapLoader.load({
     key: "5576dff99507e4ce3a07479e2f78788d", // 申请好的Web端开发者Key，首次调用 load 时必填
     version: "2.0", // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
-    plugins: [], // 需要使用的的插件列表，如比例尺'AMap.Scale'等
+    plugins: ["AMap.Scale"], // 需要使用的的插件列表，如比例尺'AMap.Scale'等
   })
     .then((AMap) => {
       map = new AMap.Map("container", {
@@ -266,6 +266,8 @@ onUnmounted(() => {
 </style>
 <style scoped>
 #container {
+  padding:0px;
+        margin: 0px;
   width: 100%;
   height: 400px;
 }

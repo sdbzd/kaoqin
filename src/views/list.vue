@@ -1,81 +1,20 @@
-
 <template>
-  <my-title  msg="查看"></my-title>
+  <my-title msg="查看"></my-title>
   <h4>{{ msg }} </h4>
 
   <div class="card">
-    <el-form :model="form" label-width="auto" style="max-width: 600px">
-      <!-- <el-form-item label="Activity name">
-        <el-input v-model="form.name" />
-      </el-form-item> -->
-      <!-- <el-form-item label="Activity zone">
-        <el-select v-model="form.region" placeholder="please select your zone">
-          <el-option label="Zone one" value="shanghai" />
-          <el-option label="Zone two" value="beijing" />
-        </el-select>
-      </el-form-item> -->
-      <el-form-item label="开始时间">
-        <el-col :span="11">
-          <el-date-picker v-model="form.date1" type="date" placeholder="Pick a date" style="width: 100%" />
-        </el-col>
-
-        <el-col :span="2" class="text-center">
-          <span class="text-gray-500">-</span>
-        </el-col>
-        <el-col :span="11">
-          <el-time-picker v-model="form.date2" placeholder="Pick a time" style="width: 100%" />
-        </el-col>
-
-
-      </el-form-item>
-      <el-form-item label="结束时间">
-        <el-col :span="11">
-          <el-date-picker v-model="form.date1" type="date" placeholder="Pick a date" style="width: 100%" />
-        </el-col>
-
-        <el-col :span="2" class="text-center">
-          <span class="text-gray-500">-</span>
-        </el-col>
-        <el-col :span="11">
-          <el-time-picker v-model="form.date2" placeholder="Pick a time" style="width: 100%" />
-        </el-col>
-
-
-      </el-form-item>
-      <!-- <el-form-item label="Instant delivery">
-        <el-switch v-model="form.delivery" />
-      </el-form-item> -->
-      <!-- <el-form-item label="请假原因">
-        <el-checkbox-group v-model="form.type">
-          <el-checkbox value="Online activities" name="type">
-            病假
-          </el-checkbox>
-          <el-checkbox value="Promotion activities" name="type">
-            事假
-          </el-checkbox>
-          <el-checkbox value="Offline activities" name="type">
-            其他
-          </el-checkbox>
-          <el-checkbox value="Simple brand exposure" name="type">
-            Simple
-          </el-checkbox>
-        </el-checkbox-group>
-      </el-form-item> -->
-      <el-form-item label="请假原因">
-        <el-radio-group v-model="form.resource">
-          <el-radio value="Sponsor">病假</el-radio>
-          <el-radio value="Venue">事假</el-radio>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item label="备注">
-        <el-input v-model="form.desc" type="textarea" />
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit">确定</el-button>
-        <el-button>重填</el-button>
-      </el-form-item>
-    </el-form>
-    <!-- <button type="button" @click="count++">count is {{ count }}</button> -->
+    <div class="demo-date-picker">
+      <el-config-provider :locale="locale">
+      <el-calendar v-model="nowDateValue" />
+      </el-config-provider>
+    </div>
+     
+    <!-- On tables -->
+  <el-table :data="tableData" style="width: 100%">
+    <el-table-column prop="date" label="Date" width="180" />
+    <el-table-column prop="name" label="Name" width="180" />
+    <el-table-column prop="address" label="Address" />
+  </el-table>
 
   </div>
 
@@ -96,11 +35,14 @@
 </template>
 
 <script setup>
-import { ref ,reactive} from 'vue'
+import { ref, reactive } from 'vue'
 import MyTitle from '../components/Header.vue'
 defineProps({
   msg: String,
 })
+
+import { ElConfigProvider } from 'element-plus'
+import locale from 'element-plus/es/locale/lang/zh-cn'
 import {
   Check,
   Delete,
@@ -124,10 +66,80 @@ const form = reactive({
 const onSubmit = () => {
   console.log('submit!')
 }
+// const locale= ref(zhCn)
+// const value = ref('2021-10-29')
+const nowDateValue = ref(new Date())
+
+const tableData = [
+  {
+    date: '2016-05-03',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-02',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-04',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-01',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+]
+
+const isHoliday = ({ dayjs }) => {
+  return holidays.includes(dayjs.format('YYYY-MM-DD'))
+}
+
+// export default {
+//   setup() {
+//     // const value1 = ref();
+//     return {
+//       // value1,
+//       locale: zhCn,
+//     };
+//   },
+// };
 </script>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
+.cell {
+  height: 30px;
+  padding: 3px 0;
+  box-sizing: border-box;
+}
+
+.cell .text {
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin: 0 auto;
+  line-height: 24px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+.cell.current .text {
+  background: #626aef;
+  color: #fff;
+}
+
+.cell .holiday {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--el-color-danger);
+  border-radius: 50%;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>

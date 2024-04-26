@@ -1,8 +1,5 @@
 <template>
   <h4>{{ msg }} </h4>
-
-
-
   <!-- <div class="mb-4">
       <el-button>Default</el-button>
       <el-button type="primary">Primary</el-button>
@@ -21,16 +18,33 @@
       <el-button type="danger" plain>Danger</el-button>
     </div>
 -->
+  <div class="card">
+ 
+    <el-row>
+      <el-col :span="6">test</el-col>
+      <el-col :span="18">
+        <div class="grid-content ep-bg-purple">
+          <el-steps :active="2" align-center>
+            <el-step title="Step 1" description=" " />
+            <el-step title="Step 2" description=" " />
+            <el-step title="Step 3" description="" />
+          </el-steps>
+        </div>
+      </el-col>
+    </el-row>
+    <el-row>
+      <el-col :span="6">test</el-col>
+      <el-col :span="18">
+        <el-steps :active="2" align-center>
+          <el-step title="Step 1" description="" />
+          <el-step title="Step 2" description=" " />
+          <el-step title="Step 3" description="" />
+        </el-steps>
+      </el-col>
+    </el-row>
+  </div>
 
-  <div class="mb-8 card">
-    <el-steps style="max-width: 600px" :active="2" align-center>
-      <el-step title="Step 1" description="Some " />
-      <el-step title="Step 2" description="Some " />
-      <el-step title="Step 3" description="Some" />
-    </el-steps>
-  </div>  
-
-    <!-- <div class="card">
+  <!-- <div class="card">
     <el-button :icon="Search" circle />
     <el-button type="primary" :icon="Edit" circle />
     <el-button type="success" :icon="Check" circle />
@@ -39,7 +53,7 @@
     <el-button type="danger" :icon="Delete" circle />
   </div> -->
 
-    <!-- <p>
+  <!-- <p>
     Check out
     <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
       >create-vue</a
@@ -50,7 +64,7 @@
     <a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>
     in your IDE for a better DX
   </p> -->
-    <!-- <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p> -->
+  <!-- <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p> -->
 </template>
 
 <script setup>
@@ -82,7 +96,18 @@ const count = ref(0)
 </script>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
+.el-row {
+  margin-bottom: 20px;
+}
+.el-row:last-child {
+  margin-bottom: 0;
+}
+.el-col {
+  border-radius: 4px;
+}
+
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
 }
 </style>

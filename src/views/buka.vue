@@ -6,7 +6,7 @@
 
   <div class="card">
     <!-- <button type="button" @click="count++">count is {{ count }}</button> -->
- 
+ <MapContainer></MapContainer>
   </div>
   
     <!-- <div class="mb-4">
@@ -65,6 +65,7 @@
 <script setup>
 import { ref } from 'vue'
 import MyTitle from '../components/Header.vue'
+import MapContainer from "../components/MapContainer2.vue";
 defineProps({
   msg: String,
 })

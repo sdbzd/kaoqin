@@ -1,19 +1,19 @@
 <template>
-  <h4>Index{{ msg }}</h4>
+  <!-- <h4>Index{{ msg }}</h4> -->
 
-  <div class="mb-8 card">
+  <div class="row">
     <!-- <router-link to="/">首页</router-link> -->
-    <router-link to="/qingjia"><el-button type="primary"> 请假</el-button></router-link>
-   <router-link to="/waiqin">  <el-button type="success"> 外勤</el-button></router-link>
-   <router-link to="/baobei"><el-button type="info"> 报备 </el-button></router-link>
-   <router-link to="/view"> <el-button type="warning">查看 </el-button> </router-link>
-   <router-link to="/buka"><el-button type="danger">补卡</el-button></router-link>
+    <router-link to="/qingjia" class="link"><el-button type="primary"> 请假</el-button></router-link>
+    <router-link to="/waiqin" class="link"> <el-button type="success"> 外勤</el-button></router-link>
+    <router-link to="/baobei" class="link"><el-button type="info"> 报备 </el-button></router-link>
+    <router-link to="/view" class="link"> <el-button type="warning">查看 </el-button> </router-link>
+    <router-link to="/buka" class="link"><el-button type="danger">补卡</el-button></router-link>
   </div>
 
   <MyActivity></MyActivity>
-  
 
-   
+
+
 </template>
 
 <script setup>
@@ -39,5 +39,9 @@ const count = ref(0)
 <style scoped>
 .read-the-docs {
   color: #888;
+}
+
+.link {
+  margin: 2px
 }
 </style>
